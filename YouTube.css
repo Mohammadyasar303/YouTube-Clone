@@ -144,9 +144,11 @@ hr{
 
 .video-card {
     padding: 10px;
+    position: relative;
     border-radius: 10px;
     color: white;
     width: 55%;
+    top: 30px;
 }
 
 .video-card img {
@@ -164,6 +166,47 @@ hr{
     font-size: 12px;
     color: white;
     margin: 0;
+}
+
+.filters{
+    position: fixed;
+    left: 250px;
+    top: 60px;
+    width: calc(100% - 250px);
+    height: 55px;
+    background: black;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    z-index: 1;
+}
+
+.filters::-webkit-scrollbar{
+    display: none;
+}
+
+.filter-options{
+    flex:0 0 auto;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background:black;
+    border:1px solid gray;
+    text-transform: capitalize;
+    margin-right: 10px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.filter-options:hover{
+    background: hsla(0, 0%, 30%, 0.5);
+}
+
+.filter-options.active{
+    color:#fff;
+    background:hsla(0, 0%, 30%, 0.5);
 }
 
 
