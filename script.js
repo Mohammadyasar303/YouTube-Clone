@@ -1,38 +1,22 @@
-const API_KEY = "AIzaSyCzVBqC8rR6rvAu9UuV2FnoDIH4ziMoVN8";
+// class work
+
+const YOUR_API_KEY = "AIzaSyCzVBqC8rR6rvAu9UuV2FnoDIH4ziMoVN8";
+
 const videoContainer = document.querySelector(".content");
+const video_https = "https://www.googleapis.com/youtube/v3/videos?";
 
-function fetchVideos() {
-    const xhr = new XMLHttpRequest();
-    const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&chart=mostPopular&regionCode=US&maxResults=12&key=${API_KEY}`;
-    
-    xhr.open("GET", url, true);
-    
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            const response = JSON.parse(xhr.responseText);
-            displayVideos(response.items);
-        }
-    };
+const numberOfVideosInInitialLoad = 20;
+const generateQueryParam = new URLSearchParams({
+    key : YOUR_API_KEY,
+    part : "snippet, contentDetails",
+    chart : "mostPopular",
+    maxResults : numberOfVideosInInitialLoad,
+    regionCode : "IN",
+})
 
-    xhr.send();
-}
+// console.log(video_https + generateQueryParam);
 
-function displayVideos(videos) {
-    videoContainer.innerHTML = ""; // Clear previous content
-
-    videos.forEach(video => {
-        const videoCard = document.createElement("div");
-        videoCard.classList.add("video-card");
-        
-        videoCard.innerHTML = `
-            <img src="${video.snippet.thumbnails.medium.url}" alt="${video.snippet.title}">
-            <h3>${video.snippet.title}</h3>
-            <p>${video.snippet.channelTitle}</p>
-        `;
-
-        videoContainer.appendChild(videoCard);
-    });
-}
-
-// Call the function when the page loads
-fetchVideos();
+fetch(video_https + generateQueryParam)
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    .catch((err) => console.log(err));
