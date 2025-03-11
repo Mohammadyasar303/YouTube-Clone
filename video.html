@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="YouTube.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="header">
+        <div id="menu-icon">
+            <i id="menu" class="material-icons">menu</i>
+        </div>
+        
+        <div class="logo-left">
+            <img id="yt-logo" src="ytlogo1.png" width="110px">
+        </div>
+ 
+        <div id="search-bar" class="search center">
+            <form action="">
+                <input class="search-bar" type="text" placeholder="Search">
+                <button><i class="material-icons">search</i></button>
+            </form>
+            <div>
+                <i id="mic" class="material-icons mic">mic</i>
+            </div>
+        </div>
+
+        <div class="icons-right">
+            <i class="material-icons">videocam</i>
+            <i class="material-icons">apps</i>
+            <i class="material-icons">notifications</i>  
+            <i class="material-icons display-this">account_circle</i>
+        </div>
+    </nav>
+
+    <div class="video-player-container">
+        <div id="video-player"></div>
+    </div>
+    <script src="video.js" type="module"></script>
+</body>
+</html>
+

@@ -183,6 +183,23 @@ hr{
     background:hsla(0, 0%, 30%, 0.5);
 }
 
+.content{
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+.thumbnail{
+    width: 390px;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.channel-icon{
+    width: 40px;
+}
 /* For Mobile */
 /* @media (min-width: 320px) and (max-width: 425px) {
 

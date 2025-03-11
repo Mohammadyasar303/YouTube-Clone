@@ -44,10 +44,18 @@ const makeVideoCard = (data) =>{
     const videoCard = document.createElement("div");
     videoCard.classList.add("video");
     videoCard.addEventListener("click",()=>{
-        window.location.href="";
+        window.location.href=`video.html?id=${data.id}`;
     })
     videoCard.innerHTML = `
-        <img src="${data.snippet.thumbnails.default.url}" class="thumbnail" alt="">
+        <img src="${data.snippet.thumbnails.high.url}" class="thumbnail" alt="">
+        
+        <div class="content1">
+            <img src="${data.snippet.thumbnails.high.url}" class="channel-icon" alt="">
+            <div>
+                <h4 class="title">${data.snippet.title}</h4>
+                <p class="channel-name">${data.snippet.channelTitle}</p>
+            </div>
+        </div>
     `
     videoContainer.appendChild(videoCard);
 } 
