@@ -184,21 +184,162 @@ hr{
 }
 
 .content{
+    width: 100% auto;
+    height: 100% auto;
     padding: 20px;
     overflow-y: scroll;
 }
 
 .thumbnail{
     width: 390px;
-    height: 300px;
-    background-size: cover;
-    background-position: center;
-    margin-bottom: 10px;
-    position: relative;
+    border-radius: 30px;
+    cursor: pointer;
 }
 
 .channel-icon{
+    /* width:35px; */
+    margin-right: 10px;
+    margin-top: -17px;
+    height: 35px;
+    border-radius: 1000px;
+}
+
+.channel-name{
+    color: gainsboro;
+}
+
+.channel-name:hover{
+    cursor: pointer;
+    color: white;
+}
+
+.content1{
+    display: flex;
+    justify-content: start;
+    width: 390px;
+    margin-top: -10px;
+}
+
+.title{
+    width: 349px;
+    margin-bottom: 10px;
+}
+
+.thumbnail-text{
+    margin-top: -20px;
+}
+
+
+/* Video Page */
+
+.video-div{
+    position: relative;
+    width: 1410px;
+    left: 100px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.videoPage-video{
+    width: 900px;
+    border-radius: 10px;
+    height: 500px;
+    margin-bottom: 20px;
+}
+
+.videoPage-title{
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.videoPage-video-container{
+    width: 59%;
+}
+
+.videoPage-channel-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.videoPage-channel{
+    width: 64%;
+}
+
+.videoPage-channel-icon-container{
+    display: flex;
+    align-items: center;
+}
+
+.videoPage-channel-icon{
     width: 40px;
+    height: 40px;
+    border-radius: 1000px;
+    margin-right: 10px;
+}
+
+.videoPage-description-text{
+    margin-top: 10px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    background-color: hsla(0, 0%, 30%, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.videoPage-description-text #description {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.videoPage-likes-dislikes{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    background-color: hsla(0, 0%, 30%, 0.5);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#like-button, #dislike-button{
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#like-button{
+    border-right: white 1px solid;
+}
+
+#like-button:hover, #dislike-button:hover {
+    background-color: #333;
+    border-radius: 30px;
+}
+
+#see-more-button{
+    background-color: hsla(0, 0%, 30%, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#see-more-button:hover {
+    background-color: #333;
 }
 /* For Mobile */
 /* @media (min-width: 320px) and (max-width: 425px) {

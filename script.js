@@ -6,7 +6,7 @@ const videoContainer = document.querySelector(".content");
 const video_https = "https://www.googleapis.com/youtube/v3/videos?";
 let channel_https = "https://www.googleapis.com/youtube/v3/channels?";
 
-const numberOfVideosInInitialLoad = 20;
+const numberOfVideosInInitialLoad = 50;
 const generateQueryParam = new URLSearchParams({
     key : YOUR_API_KEY,
     part : "snippet, contentDetails",
@@ -50,8 +50,8 @@ const makeVideoCard = (data) =>{
         <img src="${data.snippet.thumbnails.high.url}" class="thumbnail" alt="">
         
         <div class="content1">
-            <img src="${data.snippet.thumbnails.high.url}" class="channel-icon" alt="">
-            <div>
+            <img src="${data.channelThumbnail}" class="channel-icon" alt="">
+            <div class="thumbnail-text">
                 <h4 class="title">${data.snippet.title}</h4>
                 <p class="channel-name">${data.snippet.channelTitle}</p>
             </div>
