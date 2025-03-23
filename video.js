@@ -149,13 +149,9 @@ if (videoId) {
                         const videoElement = document.createElement("div");
                         videoElement.classList.add("related-video");
                         videoElement.innerHTML = `
-                            <a class="related-video-a1" href="video.html?id=${item.id.videoId}">
+                            <a href="video.html?id=${item.id.videoId}">
                                 <img src="${video.thumbnails.default.url}" alt="${video.title}">
                                 <p>${video.title}</p>
-                            </a>
-                            <a class="related-video-a2">
-                                <p>${video.channelTitle}</p>
-                                <p>${new Date(video.publishedAt).toLocaleDateString()}</p>
                             </a>
                         `;
                         relatedVideosContainer.appendChild(videoElement);

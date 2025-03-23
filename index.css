@@ -363,6 +363,7 @@ hr {
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    margin-top: 60px;
 }
 
 .related-video {
@@ -390,7 +391,3 @@ hr {
     /* align-items: center; */
 }
 
-.related-video-div a{
-    display: flex;
-    flex-direction: column;
-}
