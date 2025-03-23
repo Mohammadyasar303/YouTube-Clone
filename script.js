@@ -6,7 +6,7 @@ const videoContainer = document.querySelector(".content");
 const video_https = "https://www.googleapis.com/youtube/v3/videos?";
 let channel_https = "https://www.googleapis.com/youtube/v3/channels?";
 
-const numberOfVideosInInitialLoad = 50;
+const numberOfVideosInInitialLoad = 10;
 const generateQueryParam = new URLSearchParams({
     key : YOUR_API_KEY,
     part : "snippet, contentDetails",
