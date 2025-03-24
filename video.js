@@ -161,6 +161,6 @@ if (videoId) {
             .catch((err) => console.error("Error fetching related videos:", err));
         })
         .catch((err) => console.error("Error fetching channel data:", err));
-    })
-    .catch((err) => console.error("Error fetching video data:", err));
+//     })
+//     .catch((err) => console.error("Error fetching video data:", err));
 }
