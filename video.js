@@ -102,47 +102,47 @@ if (videoId) {
             .then((relatedVideosData) => {
                 console.log("Related Videos Response:", relatedVideosData);
 
-                setTimeout(() => {
-                    const relatedVideosContainer = document.getElementById("related-videos");
-                    relatedVideosContainer.innerHTML = ""; // Clear previous content
+                // setTimeout(() => {
+                //     const relatedVideosContainer = document.getElementById("related-videos");
+                //     relatedVideosContainer.innerHTML = ""; // Clear previous content
 
-                    if (!relatedVideosData.items || relatedVideosData.items.length === 0) {
-                        console.warn("No related videos found! Switching to search by title.");
-                        fetch(related_videos_http + new URLSearchParams({
-                            key: YOUR_API_KEY,
-                            part: "snippet",
-                            q: videoTitle, // Search using video title instead
-                            type: "video",
-                            maxResults: 10
-                        }))
-                        .then((res) => res.json())
-                        .then((searchData) => {
-                            console.log("Search Data Response:", searchData);
+                //     if (!relatedVideosData.items || relatedVideosData.items.length === 0) {
+                //         console.warn("No related videos found! Switching to search by title.");
+                //         fetch(related_videos_http + new URLSearchParams({
+                //             key: YOUR_API_KEY,
+                //             part: "snippet",
+                //             q: videoTitle, // Search using video title instead
+                //             type: "video",
+                //             maxResults: 10
+                //         }))
+                //         .then((res) => res.json())
+                //         .then((searchData) => {
+                //             console.log("Search Data Response:", searchData);
 
-                            if (!searchData.items || searchData.items.length === 0) {
-                                relatedVideosContainer.innerHTML = "<p>No related videos found.</p>";
-                                return;
-                            }
+                //             if (!searchData.items || searchData.items.length === 0) {
+                //                 relatedVideosContainer.innerHTML = "<p>No related videos found.</p>";
+                //                 return;
+                //             }
 
-                            searchData.items.forEach((item) => {
-                                const video = item.snippet;
-                                const videoElement = document.createElement("div");
-                                videoElement.classList.add("related-video");
-                                videoElement.innerHTML = `
-                                    <a href="video.html?id=${item.id.videoId}">
-                                        <img src="${video.thumbnails.default.url}" alt="${video.title}">
-                                        <p>${video.title}</p>
-                                        <p>${video.channelTitle}</p>
-                                        <p>${new Date(video.publishedAt).toLocaleDateString()}</p>
-                                    </a>
-                                `;
-                                relatedVideosContainer.appendChild(videoElement);
-                            });
-                        })
-                        .catch((err) => console.error("Error fetching videos by title:", err));
+                //             searchData.items.forEach((item) => {
+                //                 const video = item.snippet;
+                //                 const videoElement = document.createElement("div");
+                //                 videoElement.classList.add("related-video");
+                //                 videoElement.innerHTML = `
+                //                     <a href="video.html?id=${item.id.videoId}">
+                //                         <img src="${video.thumbnails.default.url}" alt="${video.title}">
+                //                         <p>${video.title}</p>
+                //                         <p>${video.channelTitle}</p>
+                //                         <p>${new Date(video.publishedAt).toLocaleDateString()}</p>
+                //                     </a>
+                //                 `;
+                //                 relatedVideosContainer.appendChild(videoElement);
+                //             });
+                //         })
+                //         .catch((err) => console.error("Error fetching videos by title:", err));
 
-                        return;
-                    }
+                //         return;
+                //     }
 
                     relatedVideosData.items.forEach((item) => {
                         const video = item.snippet;
