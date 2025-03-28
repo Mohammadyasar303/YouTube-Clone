@@ -393,95 +393,69 @@ hr {
 
 /* Media Query for Mobile Devices */
 @media (max-width: 768px) {
-    /* General adjustments for smaller screens */
-    body {
-        font-size: 14px;
+    /* Remove the sidebar */
+    .side-bar {
+        display: none; /* Hide the sidebar */
     }
 
+    /* Remove the filter bar */
+    .filters {
+        display: none; /* Hide the filter bar */
+    }
+
+    /* Center the header elements (YouTube logo and search bar) */
     .header {
-        flex-direction: column;
-        height: auto;
-        padding: 10px;
+        display: flex;
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center elements horizontally */
+        justify-content: center; /* Center elements vertically */
+        margin: 0; /* Remove top margin */
+        padding: 10px; /* Add padding for spacing */
+    }
+
+    .logo-left {
+        margin: 0 auto; /* Center the logo */
+        margin-bottom: 10px; /* Add spacing below the logo */
+    }
+
+    .search {
+        width: 100%; /* Make the search bar take full width */
+        display: flex;
+        justify-content: center; /* Center the search bar */
     }
 
     .search input {
-        width: 100%;
+        width: 80%; /* Adjust the width of the input field */
+        padding: 8px;
+        font-size: 14px;
     }
 
     .search button {
-        width: auto;
+        padding: 8px 12px;
+        font-size: 14px;
     }
 
-    .side-bar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-
-    .filters {
-        left: 0;
-        width: 100%;
-        position: relative;
-        overflow-x: scroll;
-    }
-
+    /* Display videos below the header */
     .content {
+        display: grid;
         grid-template-columns: 1fr; /* Single column for videos */
+        gap: 10px; /* Add spacing between videos */
         padding: 10px;
     }
 
     .thumbnail {
         width: 100%; /* Full width for thumbnails */
-        border-radius: 10px;
+        border-radius: 8px;
     }
 
-    .content1 {
-        flex-direction: column;
-        width: 100%;
+    .video-title {
+        font-size: 14px; /* Adjust font size for smaller screens */
+        margin-top: 5px;
     }
 
-    .title {
-        width: 100%;
-    }
-
-    .videoPage-video {
-        width: 100%;
-        height: auto; /* Maintain aspect ratio */
-    }
-
-    .videoPage-title {
-        font-size: 18px;
-    }
-
-    .videoPage-video-container {
-        width: 100%;
-    }
-
-    .videoPage-channel-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .videoPage-channel {
-        width: 100%;
-    }
-
-    .related-videos-container {
-        width: 100%;
-        margin-left: 0;
-        margin-top: 20px;
-    }
-
-    .related-video img {
-        width: 100px; /* Smaller thumbnails for related videos */
-    }
-
-    .related-video p {
-        font-size: 12px;
-    }
-
-    .video-player-container {
-        flex-direction: column;
-        margin-top: 20px;
+    .video-channel {
+        font-size: 12px; /* Adjust font size for channel name */
+        color: gray;
     }
 }
+
