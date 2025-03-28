@@ -232,57 +232,41 @@ hr {
 .video-div {
     position: relative;
     height: auto;
-    /* width: 1210px; */
-    top: 0px;
-    /* left: 100px; */
     color: white;
     display: flex;
-    /* justify-content: center; */
     flex-direction: column;
 }
 
 .videoPage-video {
-    width: 900px;
+    width: 100%; /* Full width for responsiveness */
+    height: auto; /* Maintain aspect ratio */
     border-radius: 10px;
-    height: 500px;
     margin-bottom: 20px;
 }
 
 .videoPage-title {
-    width: 900px;
     font-size: 20px;
     font-weight: 700;
     color: white;
     margin-bottom: 10px;
+    text-align: center; /* Center the title */
 }
 
 .videoPage-video-container {
-    width: 59%;
+    width: 100%; /* Full width for responsiveness */
+    padding: 10px;
 }
 
 .videoPage-channel-container {
     display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+    flex-direction: column; /* Stack channel info vertically */
+    align-items: flex-start;
+    margin-top: 10px;
 }
 
 .videoPage-channel {
-    width: 900px;
-    /* margin-right: 100px; */
-}
-
-.videoPage-channel-icon-container {
-    display: flex;
-    align-items: center;
-}
-
-.videoPage-channel-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 1000px;
-    margin-right: 10px;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .videoPage-description-text {
@@ -294,138 +278,65 @@ hr {
     border-radius: 10px;
 }
 
-.videoPage-description-text #description {
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* Number of lines to show */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.videoPage-likes-dislikes {
-    display: flex;
-    align-items: center;
-    height: 40px;
-    background-color: hsla(0, 0%, 30%, 0.5);
-    color: white;
-    border: none;
-    border-radius: 30px;
-    padding: 10px;
-    cursor: pointer;
-}
-
-#like-button, #dislike-button {
-    background-color: transparent;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-}
-
-#like-button {
-    border-right: white 1px solid;
-}
-
-#like-button:hover, #dislike-button:hover {
-    background-color: #333;
-    border-radius: 30px;
-}
-
-#see-more-button {
-    background-color: hsla(0, 0%, 30%, 0.5);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#see-more-button:hover {
-    background-color: #333;
-}
-
-#video-player {
-    display: flex;
-}
-
 .related-videos-container {
-    width: 520px;
-    margin-left: 50px;
-    display: flex;
-    /* background-color: rgb(207, 0, 0); */
-    justify-content: start;
-    flex-direction: column;
-    color: white;
-    overflow-y: auto;
-    height: 100%;
-}
-
-.video-player-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    margin-top: 60px;
+    width: 100%; /* Full width for related videos */
+    margin-top: 20px;
+    padding: 10px;
 }
 
 .related-video {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    margin-top: 10px;
 }
 
 .related-video img {
-    width: 188px auto;
-    /* height: 94px; */
+    width: 100px; /* Smaller thumbnails for related videos */
+    height: auto;
     margin-right: 10px;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .related-video p {
+    font-size: 12px;
     color: white;
-    font-size: 14px;
-    margin: 0;
-}
-
-.related-video a{
-    display: flex;
-    /* align-items: center; */
 }
 
 /* Media Query for Mobile Devices */
 @media (max-width: 768px) {
     /* Remove the sidebar */
     .side-bar {
-        display: none; /* Hide the sidebar */
+        display: none;
     }
 
     /* Remove the filter bar */
     .filters {
-        display: none; /* Hide the filter bar */
+        display: none;
     }
 
-    /* Center the header elements (YouTube logo and search bar) */
+    /* Center the header elements */
     .header {
         display: flex;
-        flex-direction: column; /* Stack elements vertically */
-        align-items: center; /* Center elements horizontally */
-        justify-content: center; /* Center elements vertically */
-        margin: 0; /* Remove top margin */
-        padding: 10px; /* Add padding for spacing */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 10px;
     }
 
     .logo-left {
-        margin: 0 auto; /* Center the logo */
-        margin-bottom: 10px; /* Add spacing below the logo */
+        margin: 0 auto;
+        margin-bottom: 10px;
     }
 
     .search {
-        width: 100%; /* Make the search bar take full width */
+        width: 100%;
         display: flex;
-        justify-content: center; /* Center the search bar */
+        justify-content: center;
     }
 
     .search input {
-        width: 80%; /* Adjust the width of the input field */
+        width: 80%;
         padding: 8px;
         font-size: 14px;
     }
@@ -435,27 +346,27 @@ hr {
         font-size: 14px;
     }
 
-    /* Display videos below the header */
-    .content {
-        display: grid;
-        grid-template-columns: 1fr; /* Single column for videos */
-        gap: 10px; /* Add spacing between videos */
+    /* Video Player Page Layout */
+    .video-player-container {
+        display: flex;
+        flex-direction: column; /* Stack video player and related videos vertically */
         padding: 10px;
+        margin-top: 100px;
     }
 
-    .thumbnail {
-        width: 100%; /* Full width for thumbnails */
-        border-radius: 8px;
+    .videoPage-video {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
     }
 
-    .video-title {
-        font-size: 14px; /* Adjust font size for smaller screens */
-        margin-top: 5px;
+    .related-videos-container {
+        width: 100%;
+        margin-top: 20px;
     }
 
-    .video-channel {
-        font-size: 12px; /* Adjust font size for channel name */
-        color: gray;
+    .related-video img {
+        width: 100px;
+        height: auto;
     }
 }
-
