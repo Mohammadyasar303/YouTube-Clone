@@ -230,6 +230,7 @@ hr {
 /* Video Page */
 
 .video-div {
+    width: 1050px;
     position: relative;
     height: auto;
     color: white;
@@ -241,7 +242,6 @@ hr {
 }
 
 .videoPage-video-container {
-    width: 70%; /* Full width for responsiveness */
     height: auto;
     padding: 10px;
 }
@@ -269,7 +269,7 @@ hr {
 }
 
 .videoPage-channel {
-    width: 100%;
+    width: 1450px;
     margin-bottom: 10px;
 }
 
@@ -372,12 +372,17 @@ hr {
 /* Related Videos Section */
 .related-videos-container {
     width: 100%; /* Full width for related videos */
-    margin-top: 20px;
+    margin-top: 50px;
+    display: flex;
     padding: 10px;
+}
+.related-video a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .related-video {
-    display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
@@ -392,6 +397,11 @@ hr {
 .related-video p {
     font-size: 12px;
     color: white;
+
+}
+
+.video-player-container{
+    display: flex;
 }
 
 /* Authentication Pages (Login and Register) */
@@ -471,73 +481,4 @@ hr {
 
 .auth-footer a:hover {
     text-decoration: underline;
-}
-
-/* Media Query for Mobile Devices */
-@media (max-width: 768px) {
-    /* Remove the sidebar */
-    .side-bar {
-        display: none;
-    }
-
-    /* Remove the filter bar */
-    .filters {
-        display: none;
-    }
-
-    /* Center the header elements */
-    .header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        padding: 10px;
-    }
-
-    .logo-left {
-        margin: 0 auto;
-        margin-bottom: 10px;
-    }
-
-    .search {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .search input {
-        width: 80%;
-        padding: 8px;
-        font-size: 14px;
-    }
-
-    .search button {
-        padding: 8px 12px;
-        font-size: 14px;
-    }
-
-    /* Video Player Page Layout */
-    .video-player-container {
-        display: flex;
-        flex-direction: column; /* Stack video player and related videos vertically */
-        padding: 10px;
-        margin-top: 0;
-    }
-
-    .videoPage-video {
-        width: 100%;
-        height: auto;
-        margin-bottom: 20px;    
-    }
-
-    .related-videos-container {
-        width: 100%;
-        margin-top: 20px;
-    }
-
-    .related-video img {
-        width: 100px;
-        height: auto;
-    }
 }

@@ -1,6 +1,7 @@
 // class work
 
-import YOUR_API_KEY from "./API_CONSTANTS.js";
+import { YOUR_API_KEY } from "./API_CONSTANTS.js";
+
 
 const videoContainer = document.querySelector(".content");
 const video_https = "https://www.googleapis.com/youtube/v3/videos?";

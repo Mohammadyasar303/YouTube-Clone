@@ -1,4 +1,4 @@
-import YOUR_API_KEY from "./API_CONSTANTS.js";
+import { YOUR_API_KEY} from "./API_CONSTANTS.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const videoId = urlParams.get("id");
@@ -55,7 +55,7 @@ if (videoId) {
                                 <img src="${channelThumbnail}" class="videoPage-channel-icon" alt="">
                                 <div>
                                     <p class="videoPage-channel-text">${data.items[0].snippet.channelTitle}</p>
-                                    <p class="videoPage-channel-subs">${channelData.items[0].statistics.subscriberCount} Subcribers</p>
+                                    <p class="videoPage-channel-subs-text">${channelData.items[0].statistics.subscriberCount} Subscribers</p>
                                 </div>
                                 <button class="videoPage-channel-subs-btn">Subscribe</button>                                
                             </div>
@@ -72,11 +72,6 @@ if (videoId) {
                             <button id="see-more-button">See More</button>
                         </div>
                     </div>
-                </div>
-
-                <div class="related-videos-container">
-                    <h2>Related Videos</h2>
-                    <div id="related-videos">Loading...</div>
                 </div>
             `;
 
@@ -146,19 +141,6 @@ if (videoId) {
 
                         return;
                     }
-
-                    // relatedVideosData.items.forEach((item) => {
-                    //     const video = item.snippet;
-                    //     const videoElement = document.createElement("div");
-                    //     videoElement.classList.add("related-video");
-                    //     videoElement.innerHTML = `
-                    //         <a href="video.html?id=${item.id.videoId}">
-                    //             <img src="${video.thumbnails.default.url}" alt="${video.title}">
-                    //             <p>${video.title}</p>
-                    //         </a>
-                    //     `;
-                    //     relatedVideosContainer.appendChild(videoElement);
-                    // });
                 }, 100);
             })
             .catch((err) => console.error("Error fetching related videos:", err));
