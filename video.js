@@ -30,7 +30,7 @@ if (videoId) {
 
         fetch(channel_https + new URLSearchParams({
             key: YOUR_API_KEY,
-            part: "snippet",
+            part: "snippet, statistics",
             id: channelId,
         }))
         .then((res) => res.json())
@@ -41,6 +41,7 @@ if (videoId) {
             }
 
             const channelThumbnail = channelData.items[0].snippet.thumbnails.default.url;
+            // const subscriberCount = channelData.items[0].statistics.subscriberCount;
             videoPlayerContainer.innerHTML = `
                 <div class="video-div">
                     <div class="videoPage-video-container">
@@ -52,7 +53,11 @@ if (videoId) {
                         <div class="videoPage-channel-container">
                             <div class="videoPage-channel-icon-container">
                                 <img src="${channelThumbnail}" class="videoPage-channel-icon" alt="">
-                                <p class="videoPage-channel-text">${data.items[0].snippet.channelTitle}</p>
+                                <div>
+                                    <p class="videoPage-channel-text">${data.items[0].snippet.channelTitle}</p>
+                                    <p class="videoPage-channel-subs">${channelData.items[0].statistics.subscriberCount} Subcribers</p>
+                                </div>
+                                <button class="videoPage-channel-subs-btn">Subscribe</button>                                
                             </div>
 
                             <div class="videoPage-likes-dislikes">
