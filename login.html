@@ -30,5 +30,47 @@
             </p>
         </div>
     </div>
+
+    <!-- Firebase SDK -->
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+      
+        const firebaseConfig = {
+          apiKey: "AIzaSyAinrF9y9xjC8HYj-Ms1w7xNj4AG_duMcI",
+          authDomain: "login-for-yt-clone.firebaseapp.com",
+          projectId: "login-for-yt-clone",
+          storageBucket: "login-for-yt-clone.firebasestorage.app",
+          messagingSenderId: "866704752102",
+          appId: "1:866704752102:web:e8d288fa5f5a9826672a27",
+          measurementId: "G-KCK5W072MB"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+      
+        // Handle form submission
+        document.querySelector(".auth-form").addEventListener("submit", (e) => {
+          e.preventDefault(); // prevent form from reloading the page
+      
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+      
+          signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              // Logged in successfully
+              const user = userCredential.user;
+              alert("Login successful! Redirecting...");
+              window.location.href = "index.html"; // redirect to your homepage
+            })
+            .catch((error) => {
+              alert("Login failed: " + error.message);
+            });
+        });
+      </script>
+      
+
 </body>
 </html>
