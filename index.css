@@ -482,3 +482,8 @@ hr {
 .auth-footer a:hover {
     text-decoration: underline;
 }
+
+/* Search page css */
+.thumbnail-text .title{
+    width: 320px;
+}

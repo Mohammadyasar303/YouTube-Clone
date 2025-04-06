@@ -1,10 +1,11 @@
 // class work
 
-import { YOUR_API_KEY } from "./API_CONSTANTS.js";
+import { YOUR_API_KEY, YOUR_API_SEARCH } from "./API_CONSTANTS.js";
 
 
 const videoContainer = document.querySelector(".content");
 const video_https = "https://www.googleapis.com/youtube/v3/videos?";
+const search_http = "https://www.googleapis.com/youtube/v3/search?";
 let channel_https = "https://www.googleapis.com/youtube/v3/channels?";
 
 const numberOfVideosInInitialLoad = 10;
@@ -60,3 +61,61 @@ const makeVideoCard = (data) =>{
     `
     videoContainer.appendChild(videoCard);
 } 
+
+const searchForm = document.getElementById("search-form");
+const searchInput = document.getElementById("search-input");
+
+searchForm.addEventListener("submit", (e) => {
+    e.preventDefault(); // Prevent form from reloading the page
+
+    const query = searchInput.value.trim(); // Get the search query
+    if (!query) {
+        alert("Please enter a search term!");
+        return;
+    }
+
+    // Fetch videos based on the search query
+    fetch(search_http + new URLSearchParams({
+        key: YOUR_API_SEARCH,
+        part: "snippet",
+        q: query, // Search query
+        type: "video",
+        maxResults: 7, // Number of results to fetch
+    }))
+    .then((res) => res.json())
+    .then((data) => {
+        console.log("Search Results:", data);
+        displaySearchResults(data.items); // Display the search results
+    })
+    .catch((err) => console.error("Error fetching search results:", err));
+});
+
+// Function to Display Search Results
+const displaySearchResults = (videos) => {
+    videoContainer.innerHTML = ""; // Clear previous content
+
+    if (!videos || videos.length === 0) {
+        videoContainer.innerHTML = "<p>No videos found for your search.</p>";
+        return;
+    }
+
+    videos.forEach((video) => {
+        const videoCard = document.createElement("div");
+        videoCard.classList.add("video");
+        videoCard.addEventListener("click", () => {
+            window.location.href = `video.html?id=${video.id.videoId}`;
+        });
+
+        videoCard.innerHTML = `
+            <img src="${video.snippet.thumbnails.high.url}" class="thumbnail" alt="${video.snippet.title}">
+            <div class="content1">
+                <img src="https://via.placeholder.com/50" class="channel-icon" alt="Channel Icon">
+                <div class="thumbnail-text">
+                    <h4 class="title">${video.snippet.title}</h4>
+                    <p class="channel-name">${video.snippet.channelTitle}</p>
+                </div>
+            </div>
+        `;
+        videoContainer.appendChild(videoCard);
+    });
+};
