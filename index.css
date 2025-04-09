@@ -501,7 +501,7 @@ hr {
         grid-template-columns: 1fr;
     }
 
-    .search{
+    #search-bar{
         width: 100px;
         margin-right: 750px;
     }
