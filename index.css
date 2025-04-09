@@ -511,6 +511,12 @@ hr {
         width: 260px !important;
     }
 
+    #search-bar-video {
+        margin-top: 0px;
+        margin-bottom: 30px;
+        margin-right: 1000px;
+    }
+
     .content1{
         width: 95%;
     }
