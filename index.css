@@ -503,6 +503,7 @@ hr {
 
     #search-bar{ 
         /* width: 100px !important; */
+        position: fixed;
         margin-top: 350px;
         margin-right: 750px;
     }
@@ -560,5 +561,6 @@ hr {
 
     .video-div{
         width: 50%;
+        overflow-y: scroll;
     }
 }
