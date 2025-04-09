@@ -501,6 +501,11 @@ hr {
         grid-template-columns: 1fr;
     }
 
+    .search{
+        width: 100px;
+        margin-right: 750px;
+    }
+
     .content1{
         width: 95%;
     }
