@@ -1,6 +1,6 @@
 // class work
 
-import { YOUR_API_KEY, YOUR_API_SEARCH } from "./API_CONSTANTS.js";
+import { YOUR_API_KEY, YOUR_API_SEARCH, FILTER_API_KEY } from "./API_CONSTANTS.js";
 
 
 const videoContainer = document.querySelector(".content");
@@ -96,6 +96,68 @@ const displaySearchResults = (videos) => {
 
     if (!videos || videos.length === 0) {
         videoContainer.innerHTML = "<p>No videos found for your search.</p>";
+        return;
+    }
+
+    videos.forEach((video) => {
+        const videoCard = document.createElement("div");
+        videoCard.classList.add("video");
+        videoCard.addEventListener("click", () => {
+            window.location.href = `video.html?id=${video.id.videoId}`;
+        });
+
+        videoCard.innerHTML = `
+            <img src="${video.snippet.thumbnails.high.url}" class="thumbnail" alt="${video.snippet.title}">
+            <div class="content1">
+                <img src="https://via.placeholder.com/50" class="channel-icon" alt="Channel Icon">
+                <div class="thumbnail-text">
+                    <h4 class="title">${video.snippet.title}</h4>
+                    <p class="channel-name">${video.snippet.channelTitle}</p>
+                </div>
+            </div>
+        `;
+        videoContainer.appendChild(videoCard);
+    });
+};
+
+// Select all filter buttons
+const filterButtons = document.querySelectorAll(".filter-options");
+
+// Add event listeners to each filter button
+filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        // Remove the 'active' class from all buttons
+        filterButtons.forEach((btn) => btn.classList.remove("active"));
+
+        // Add the 'active' class to the clicked button
+        button.classList.add("active");
+
+        // Get the filter text (e.g., "CSS", "JavaScript")
+        const filter = button.textContent.trim();
+
+        // Fetch videos based on the filter
+        fetch(search_http + new URLSearchParams({
+            key: FILTER_API_KEY,
+            part: "snippet",
+            q: filter, // Use the filter text as the search query
+            type: "video",
+            maxResults: 3, // Number of results to fetch
+        }))
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(`Videos for filter: ${filter}`, data);
+            displayFilterResults(data.items); // Display the fetched videos
+        })
+        .catch((err) => console.error(`Error fetching videos for filter: ${filter}`, err));
+    });
+});
+
+// Function to Display Filter Results
+const displayFilterResults = (videos) => {
+    videoContainer.innerHTML = ""; // Clear previous content
+
+    if (!videos || videos.length === 0) {
+        videoContainer.innerHTML = "<p>No videos found for this filter.</p>";
         return;
     }
 
