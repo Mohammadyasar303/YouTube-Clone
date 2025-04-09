@@ -521,6 +521,11 @@ hr {
         width: 260px;
     }
 
+    .videoPage-video{
+        width: 260px;
+        height: 300px;
+    }
+
     .content1{
         width: 95%;
     }
