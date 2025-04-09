@@ -512,9 +512,13 @@ hr {
     }
 
     #search-bar-video {
-        margin-top: 0px;
+        margin-top: 20px;
         margin-bottom: 30px;
         margin-right: 1000px;
+    }
+
+    #search-bar-video #search-input-video{
+        width: 260px;
     }
 
     .content1{
