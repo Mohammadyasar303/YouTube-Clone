@@ -496,16 +496,19 @@ hr {
     }
 
     .content{
-        position: fixed;
         margin-top: 200px;
         display: grid ;
         grid-template-columns: 1fr;
     }
 
     #search-bar{ 
-        width: 100px !important;
+        /* width: 100px !important; */
         margin-top: 350px;
         margin-right: 750px;
+    }
+
+    #search-bar #search-input{
+        width: 100px !important;
     }
 
     .content1{
